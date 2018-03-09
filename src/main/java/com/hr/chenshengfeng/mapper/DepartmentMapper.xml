@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射接口-->
+<mapper namespace="com.hr.chenshengfeng.mapper.DepartmentMapper">
+<select id="selectDepartment" resultType="com.hr.chenshengfeng.model.Department">
+    SELECT * FROM department
+</select>
+
+    <insert id="addDepartment" parameterType="com.hr.chenshengfeng.model.Department" keyColumn="DEPARTMENTID" useGeneratedKeys="true" keyProperty="departmentId">
+        INSERT INTO department(NAME) VALUES (#{name})
+    </insert>
+    
+    <delete id="deleteDepartmentById" parameterType="integer" >
+        DELETE  FROM  department where departmentid=#{departmentID}
+    </delete>
+    
+<select id="selectDepartmentById" parameterType="integer" resultType="com.hr.chenshengfeng.model.Department">
+    SELECT *FROM  department WHERE  departmentid=#{departmentID}
+</select>
+
+    <update id="updateDepartment" parameterType="com.hr.chenshengfeng.model.Department" >
+        UPDATE department SET  name=#{name} WHERE departmentID=#{departmentId}
+    </update>
+
+    <select id="selectDepartmentLimit" resultType="com.hr.chenshengfeng.model.Department">
+        SELECT *FROM department limit #{begin},#{size}
+    </select>
+
+</mapper>

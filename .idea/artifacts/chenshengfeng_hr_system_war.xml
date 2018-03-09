@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="chenshengfeng_hr_system:war">
+    <output-path>$PROJECT_DIR$/../chenshengfeng_hr_system/target</output-path>
+    <root id="archive" name="1709-AO.war">
+      <element id="artifact" artifact-name="chenshengfeng_hr_system:war exploded" />
+    </root>
+  </artifact>
+</component>

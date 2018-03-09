@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射接口-->
+<mapper namespace="com.hr.chenshengfeng.mapper.DutyMapper">
+
+    <resultMap id="dutyMapper" type="com.hr.chenshengfeng.model.Duty" >
+        <id property="dutyId" column="DUTYID"></id>
+        <result property="name" column="DUTYNAME"></result>
+        <association property="department" column="department" javaType="com.hr.chenshengfeng.model.Department" >
+            <id property="departmentId" column="DEPARTMENTID"></id>
+            <result property="name" column="NAME"></result>
+        </association>
+    </resultMap>
+
+
+        <select id="selectDuty" resultType="com.hr.chenshengfeng.model.Duty">
+            select *FROM duty
+        </select>
+
+    <select id="selectDutyLimit" resultMap="dutyMapper">
+        select dutyid,dutyname,departmentid,name from  duty INNER JOIN department ON duty.department=department.departmentid limit #{begin},#{size}
+    </select>
+
+
+
+</mapper>
