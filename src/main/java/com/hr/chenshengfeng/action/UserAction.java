@@ -40,6 +40,10 @@ public class UserAction {
         return "index";
     }
 
+    @RequestMapping(value = "/hello")
+    public String hellpo(){
+        return "hello";
+    }
 
 
 
